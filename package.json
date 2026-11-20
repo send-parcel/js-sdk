@@ -1,0 +1,53 @@
+{
+    "name": "@sendparcel/sdk",
+    "version": "0.1.0",
+    "description": "TypeScript and JavaScript client for the SendParcel App API v2",
+    "keywords": [
+        "sendparcel",
+        "shipping",
+        "courier",
+        "api",
+        "sdk"
+    ],
+    "homepage": "https://github.com/send-parcel/js-sdk#readme",
+    "bugs": {
+        "url": "https://github.com/send-parcel/js-sdk/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/send-parcel/js-sdk.git"
+    },
+    "license": "Apache-2.0",
+    "type": "module",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js",
+            "default": "./dist/index.js"
+        }
+    },
+    "types": "./dist/index.d.ts",
+    "files": [
+        "dist",
+        "src",
+        "NOTICE"
+    ],
+    "engines": {
+        "node": ">=22"
+    },
+    "scripts": {
+        "typecheck": "tsc -p tsconfig.json",
+        "test": "vitest run --coverage",
+        "build": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\" && tsc -p tsconfig.build.json",
+        "prepare": "npm run build",
+        "prepublishOnly": "npm run typecheck && npm test"
+    },
+    "devDependencies": {
+        "@vitest/coverage-v8": "^5.1.1",
+        "typescript": "^7.0.2",
+        "vitest": "^5.1.1"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}
